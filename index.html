@@ -1,231 +1,291 @@
- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="de">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naemis Einschulung – Save the Date</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #FF6B9D;
+      --yellow: #FFD93D;
+      --teal: #4ECDC4;
+      --purple: #C77DFF;
+      --orange: #FF9F43;
+      --green: #6BCB77;
+      --bg: #FFF8F0;
+      --dark: #2D2D2D;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      opacity: 0.1;
+      pointer-events: none;
+      animation: float 9s ease-in-out infinite;
+    }
+    .blob-1 { width: 300px; height: 300px; background: var(--pink); top: -90px; left: -90px; }
+    .blob-2 { width: 200px; height: 200px; background: var(--yellow); top: 55%; right: -60px; animation-delay: 2s; }
+    .blob-3 { width: 240px; height: 240px; background: var(--teal); bottom: -80px; left: 30%; animation-delay: 4s; }
+    .blob-4 { width: 150px; height: 150px; background: var(--purple); top: 28%; left: -44px; animation-delay: 1s; }
+    .blob-5 { width: 170px; height: 170px; background: var(--orange); top: 6%; right: 3%; animation-delay: 3s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(6deg); }
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 460px;
+      background: white;
+      border-radius: 28px;
+      padding: 52px 40px 44px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.13);
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    .strip {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 9px;
+      background: repeating-linear-gradient(90deg,
+        var(--pink) 0 40px, var(--yellow) 40px 80px,
+        var(--teal) 80px 120px, var(--purple) 120px 160px,
+        var(--orange) 160px 200px, var(--green) 200px 240px);
+    }
+    .strip-top { top: 0; border-radius: 28px 28px 0 0; }
+    .strip-bottom { bottom: 0; border-radius: 0 0 28px 28px; }
+
+    .star {
+      position: absolute;
+      font-size: 1rem;
+      animation: twinkle 2.2s ease-in-out infinite;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.25; transform: scale(0.55); }
+    }
+
+    .emoji-row {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 14px;
+    }
+    .emoji-row span {
+      display: inline-block;
+      animation: wiggle 3s ease-in-out infinite;
+    }
+    .emoji-row span:nth-child(2) { animation-delay: 0.35s; }
+    .emoji-row span:nth-child(3) { animation-delay: 0.7s; }
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-11deg); }
+      75% { transform: rotate(11deg); }
+    }
+
+    .label-pill {
+      display: block;
+      width: fit-content;
+      margin: 0 auto 18px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.9rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--pink);
+      background: #FFF0F5;
+      padding: 6px 18px;
+      border-radius: 50px;
+      border: 2px dashed var(--pink);
+    }
+
+    .name {
+      font-family: 'Baloo 2', cursive;
+      font-weight: 800;
+      font-size: 4rem;
+      text-align: center;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--pink), var(--purple), var(--orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.4rem;
+      text-align: center;
+      color: var(--dark);
+      margin-bottom: 22px;
+    }
+    .subtitle span { color: var(--teal); }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .divider-line {
+      flex: 1;
+      height: 2px;
+      background: repeating-linear-gradient(90deg,
+        transparent 0, transparent 5px,
+        #E8E8E8 5px, #E8E8E8 10px);
+    }
+
+    .date-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 22px;
+      align-items: center;
+    }
+
+    .date-pill {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 16px;
+      border-radius: 18px;
+    }
+    .date-pill .num {
+      font-family: 'Baloo 2', cursive;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .date-pill .lbl {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.8;
+    }
+
+    .dot {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #D0D0D0;
+      padding-bottom: 4px;
+    }
+
+    .info-box {
+      background: linear-gradient(135deg, #FFF0F5, #F0F8FF, #FFF8E1);
+      border-radius: 18px;
+      padding: 18px 22px;
+      text-align: center;
+      margin-bottom: 26px;
+      font-size: 0.93rem;
+      color: #555;
+      line-height: 1.8;
+    }
+    .info-box strong { color: var(--dark); }
+    .info-box small { color: #999; font-size: 0.82rem; }
+
+    .btn-rsvp {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      border-radius: 50px;
+      border: none;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: white;
+      font-family: 'Baloo 2', cursive;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(255, 107, 157, 0.35);
+      transition: transform 0.15s;
+      text-decoration: none;
+      text-align: center;
+    }
+    .btn-rsvp:hover {
+      transform: scale(1.03);
+    }
+
+    @media (max-width: 500px) {
+      .card { padding: 44px 24px 38px; }
+      .name { font-size: 3.3rem; }
+    }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="de"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Naemis Einschulung - Save the Date&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&amp;family=Fredoka+One&amp;family=Nunito:wght@400;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/react@18/umd/react.production.min.js"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>* { box-sizing: border-box; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body { margin: 0; padding: 0; overflow-x: hidden; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes wiggle {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>0%,100%{transform:rotate(0deg)} 25%{transform:rotate(-10deg)} 75%{transform:rotate(10deg)}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes twinkle {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.6)}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes bounceIn {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>from{opacity:0;transform:scale(0)} to{opacity:1;transform:scale(1)}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes floatShape {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>0%,100%{transform:translateY(0) rotate(0deg)}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>50%{transform:translateY(-18px) rotate(5deg)}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="root"&gt;&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script type="text/babel"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const { useState, useEffect } = React;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>const ADMIN_PASSWORD = "naemi2026";</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const COLORS = {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>pink: "#FF6B9D", yellow: "#FFD93D", teal: "#4ECDC4",</p>
-<p class="p1"><span class="Apple-converted-space">            </span>purple: "#C77DFF", orange: "#FF9F43", green: "#6BCB77",</p>
-<p class="p1"><span class="Apple-converted-space">            </span>bg: "#FFF8F0", dark: "#2D2D2D"</p>
-<p class="p1"><span class="Apple-converted-space">        </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>const starPos = [</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{ top: "56px", right: "28px" },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{ top: "130px", left: "18px" },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{ bottom: "80px", right: "22px" },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{ bottom: "150px", left: "14px" }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function FloatingShapes() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const shapes = [</p>
-<p class="p1"><span class="Apple-converted-space">                </span>{ w: 280, h: 280, bg: COLORS.pink, top: "-80px", left: "-80px", delay: "0s" },</p>
-<p class="p1"><span class="Apple-converted-space">                </span>{ w: 180, h: 180, bg: COLORS.yellow, top: "60%", right: "-50px", delay: "2s" },</p>
-<p class="p1"><span class="Apple-converted-space">                </span>{ w: 220, h: 220, bg: COLORS.teal, bottom: "-70px", left: "35%", delay: "4s" },</p>
-<p class="p1"><span class="Apple-converted-space">                </span>{ w: 140, h: 140, bg: COLORS.purple, top: "30%", left: "-40px", delay: "1s" },</p>
-<p class="p1"><span class="Apple-converted-space">                </span>{ w: 160, h: 160, bg: COLORS.orange, top: "8%", right: "4%", delay: "3s" },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>];</p>
-<p class="p1"><span class="Apple-converted-space">            </span>return (</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div style={{ position: "fixed", inset: 0, overflow: "hidden", pointerEvents: "none", zIndex: 0 }}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>{shapes.map((s, i) =&gt; (</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div key={i} style={{</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>position: "absolute", borderRadius: "50%", opacity: 0.1,</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>width: s.w, height: s.h, background: s.bg,</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>top: s.top, left: s.left, right: s.right, bottom: s.bottom,</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>animation: `floatShape 8s ease-in-out ${s.delay} infinite`,</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>}} /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>))}</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function ConfettiStrip({ bottom = false }) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const colors = [COLORS.pink, COLORS.yellow, COLORS.teal, COLORS.purple, COLORS.orange, COLORS.green];</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const repeated = [...colors, ...colors, ...colors];</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const gradient = repeated.map((c, i) =&gt; `${c} ${i * 40}px, ${c} ${(i + 1) * 40}px`).join(", ");</p>
-<p class="p1"><span class="Apple-converted-space">            </span>return (</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div style={{</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>position: "absolute", [bottom ? "bottom" : "top"]: 0, left: 0, right: 0, height: 9,</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>background: `repeating-linear-gradient(90deg, ${gradient})`,</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>borderRadius: bottom ? "0 0 28px 28px" : "28px 28px 0 0",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}} /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function App() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const [view, setView] = useState("card");</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const [name, setName] = useState("");</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const [coming, setComing] = useState(null);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const [submitting, setSubmitting] = useState(false);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const [rsvpList, setRsvpList] = useState([]);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const [adminPw, setAdminPw] = useState("");</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const [adminError, setAdminError] = useState("");</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Lokal gespeicherte Daten (da auf GitHub Pages keine echte Datenbank ohne Backend geht)</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const saveToLocal = (entry) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const existing = JSON.parse(localStorage.getItem("rsvps") || "[]");</p>
-<p class="p1"><span class="Apple-converted-space">                </span>existing.push(entry);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>localStorage.setItem("rsvps", JSON.stringify(existing));</p>
-<p class="p1"><span class="Apple-converted-space">            </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const submitRsvp = () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (!name.trim() || coming === null) return;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>setSubmitting(true);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const entry = { name: name.trim(), coming, ts: Date.now() };</p>
-<p class="p1"><span class="Apple-converted-space">                </span>saveToLocal(entry);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>setTimeout(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>setSubmitting(false);</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>setView("thanks");</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}, 800);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const handleAdminLogin = () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (adminPw === ADMIN_PASSWORD) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>setRsvpList(JSON.parse(localStorage.getItem("rsvps") || "[]").sort((a,b) =&gt; b.ts - a.ts));</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>setView("admin");</p>
-<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>setAdminError("Falsches Passwort 🙈");</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (view === "card") return (</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div style={{ minHeight: "100vh", background: COLORS.bg, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "24px 16px", position: "relative" }}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;FloatingShapes /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div className="card" style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: 460, background: "white", borderRadius: 28, padding: "52px 40px 44px", boxShadow: "0 24px 80px rgba(0,0,0,0.13)", overflow: "hidden" }}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;ConfettiStrip /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>{["⭐","✨","⭐","✨"].map((s, i) =&gt; (</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span key={i} style={{ position: "absolute", fontSize: "1rem", animation: `twinkle 2s ${i * 0.4}s ease-in-out infinite`, ...starPos[i] }}&gt;{s}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>))}</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div style={{ textAlign: "center", fontSize: "2.2rem", marginBottom: 14 }}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>{["🎒","📚","🌟"].map((e, i) =&gt; (</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span key={i} style={{ display: "inline-block", animation: `wiggle 3s ${i * 0.35}s ease-in-out infinite` }}&gt;{e}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>))}</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div style={{ textAlign: "center", marginBottom: 18 }}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span style={{ fontFamily: "'Fredoka One', cursive", fontSize: "0.9rem", letterSpacing: "0.22em", textTransform: "uppercase", color: COLORS.pink, background: "#FFF0F5", padding: "6px 18px", borderRadius: 50, border: `2px dashed ${COLORS.pink}` }}&gt;Save the Date&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div style={{ fontFamily: "'Baloo 2', cursive", fontWeight: 800, fontSize: "4rem", textAlign: "center", lineHeight: 1, color: COLORS.pink, marginBottom: 6 }}&gt;Naemi&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div style={{ fontFamily: "'Fredoka One', cursive", fontSize: "1.45rem", textAlign: "center", color: COLORS.dark, marginBottom: 24 }}&gt;kommt in die &lt;span style={{ color: COLORS.teal }}&gt;Schule!&lt;/span&gt; 🎉&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div style={{ display: "flex", justifyContent: "center", gap: 14, marginBottom: 24 }}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div style={{ textAlign: "center", background: "#FFF0F5", padding: "10px 18px", borderRadius: 18 }}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div style={{ fontFamily: "'Baloo 2', cursive", fontWeight: 800, fontSize: "2.2rem", color: COLORS.pink }}&gt;09&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div style={{ fontSize: "0.7rem", fontWeight: 700, color: COLORS.pink }}&gt;TAG&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div style={{ textAlign: "center", background: "#FFF8E1", padding: "10px 18px", borderRadius: 18 }}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div style={{ fontFamily: "'Baloo 2', cursive", fontWeight: 800, fontSize: "2.2rem", color: COLORS.orange }}&gt;09&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div style={{ fontSize: "0.7rem", fontWeight: 700, color: COLORS.orange }}&gt;MONAT&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div style={{ textAlign: "center", background: "#E8FAF8", padding: "10px 18px", borderRadius: 18 }}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div style={{ fontFamily: "'Baloo 2', cursive", fontWeight: 800, fontSize: "1.9rem", color: COLORS.teal }}&gt;2026&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div style={{ fontSize: "0.7rem", fontWeight: 700, color: COLORS.teal }}&gt;JAHR&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onClick={() =&gt; setView("rsvp")} style={{ width: "100%", padding: "14px", borderRadius: 50, border: "none", background: `linear-gradient(135deg, ${COLORS.pink}, ${COLORS.purple})`, color: "white", fontFamily: "'Baloo 2', cursive", fontSize: "1.1rem", fontWeight: 700, cursor: "pointer", boxShadow: `0 6px 20px ${COLORS.pink}55` }}&gt;✏️ Ich sage Bescheid!&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;ConfettiStrip bottom /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button onClick={() =&gt; setView("adminLogin")} style={{ marginTop: 16, background: "none", border: "none", color: "#C0C0C0", fontSize: "0.75rem", cursor: "pointer" }}&gt;🔒 Admin&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (view === "rsvp") return (</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div style={{ minHeight: "100vh", background: COLORS.bg, display: "flex", alignItems: "center", justifyContent: "center", padding: "24px 16px" }}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div style={{ position: "relative", width: "100%", maxWidth: 420, background: "white", borderRadius: 28, padding: "48px 36px 40px", boxShadow: "0 24px 80px rgba(0,0,0,0.12)", overflow: "hidden" }}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;ConfettiStrip /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2 style={{ fontFamily: "'Baloo 2', cursive", textAlign: "center" }}&gt;Deine Rückmeldung&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input value={name} onChange={e =&gt; setName(e.target.value)} placeholder="Dein Name" style={{ width: "100%", padding: "12px", borderRadius: 14, border: "2px solid #E8E8E8", marginBottom: 20 }} /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div style={{ display: "flex", gap: 10, marginBottom: 20 }}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button onClick={() =&gt; setComing(true)} style={{ flex: 1, padding: "12px", borderRadius: 14, border: coming === true ? `2px solid ${COLORS.green}` : "2px solid #EEE", background: coming === true ? COLORS.green + "22" : "white" }}&gt;Zusage 🎉&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button onClick={() =&gt; setComing(false)} style={{ flex: 1, padding: "12px", borderRadius: 14, border: coming === false ? `2px solid ${COLORS.pink}` : "2px solid #EEE", background: coming === false ? COLORS.pink + "22" : "white" }}&gt;Absage 😢&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onClick={submitRsvp} style={{ width: "100%", padding: "14px", borderRadius: 50, border: "none", background: COLORS.purple, color: "white", fontWeight: "bold" }}&gt;Absenden 🚀&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;ConfettiStrip bottom /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (view === "thanks") return (</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div style={{ minHeight: "100vh", background: COLORS.bg, display: "flex", alignItems: "center", justifyContent: "center" }}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div style={{ textAlign: "center", background: "white", padding: "40px", borderRadius: 28, boxShadow: "0 20px 60px rgba(0,0,0,0.1)" }}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h1&gt;Danke! ❤️&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onClick={() =&gt; setView("card")} style={{ background: COLORS.teal, color: "white", border: "none", padding: "10px 20px", borderRadius: 20 }}&gt;Zurück&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (view === "adminLogin") return (</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div style={{ minHeight: "100vh", background: COLORS.bg, display: "flex", alignItems: "center", justifyContent: "center" }}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div style={{ background: "white", padding: "40px", borderRadius: 28, textAlign: "center" }}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3&gt;Admin Login&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="password" value={adminPw} onChange={e =&gt; setAdminPw(e.target.value)} style={{ padding: "10px", marginBottom: "10px" }} /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;br /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onClick={handleAdminLogin} style={{ background: COLORS.purple, color: "white", border: "none", padding: "10px 20px", borderRadius: 20 }}&gt;Login&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>{adminError &amp;&amp; &lt;p style={{ color: "red" }}&gt;{adminError}&lt;/p&gt;}</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (view === "admin") return (</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div style={{ padding: "40px", background: COLORS.bg, minHeight: "100vh" }}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2&gt;Rückmeldungen&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>{rsvpList.map((r, i) =&gt; (</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div key={i} style={{ background: "white", margin: "10px 0", padding: "15px", borderRadius: 10 }}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;strong&gt;{r.name}&lt;/strong&gt; - {r.coming ? "Kommt 🎉" : "Kommt nicht 😢"}</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>))}</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button onClick={() =&gt; setView("card")}&gt;Abmelden&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>return null;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>const root = ReactDOM.createRoot(document.getElementById('root'));</p>
-<p class="p1"><span class="Apple-converted-space">        </span>root.render(&lt;App /&gt;);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="blob blob-4"></div>
+  <div class="blob blob-5"></div>
+
+  <div class="card">
+    <div class="strip strip-top"></div>
+
+    <span class="star" style="top: 58px; right: 30px; animation-delay: 0s">⭐</span>
+    <span class="star" style="top: 135px; left: 20px; animation-delay: 0.7s">✨</span>
+    <span class="star" style="bottom: 88px; right: 26px; animation-delay: 1.2s">⭐</span>
+    <span class="star" style="bottom: 158px; left: 16px; animation-delay: 0.4s">✨</span>
+
+    <div class="emoji-row">
+      <span>🎒</span><span>📚</span><span>🌟</span>
+    </div>
+
+    <span class="label-pill">Save the Date</span>
+
+    <div class="name">Naemi</div>
+    <div class="subtitle">kommt in die <span>Schule!</span> 🎉</div>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span style="font-size: 1.1rem">🌈</span>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="date-row">
+      <div class="date-pill" style="background: #FFF0F5">
+        <span class="num" style="font-size: 2.2rem; color: var(--pink)">09</span>
+        <span class="lbl" style="color: var(--pink)">Tag</span>
+      </div>
+      <span class="dot">·</span>
+      <div class="date-pill" style="background: #FFF8E1">
+        <span class="num" style="font-size: 2.2rem; color: var(--orange)">09</span>
+        <span class="lbl" style="color: var(--orange)">Monat</span>
+      </div>
+      <span class="dot">·</span>
+      <div class="date-pill" style="background: #E8FAF8">
+        <span class="num" style="font-size: 1.85rem; color: var(--teal)">2026</span>
+        <span class="lbl" style="color: var(--teal)">Jahr</span>
+      </div>
+    </div>
+
+    <div class="info-box">
+      🎊 Merkt euch diesen besonderen Tag vor! 🎊<br>
+      <strong>Mittwoch, 9. September 2026</strong><br>
+      <small>Weitere Details folgen noch ✉️</small>
+    </div>
+
+    <a href="https://forms.gle/bKXYQVyTT1oiUaf98" class="btn-rsvp" target="_blank">✏️ Ich sage Bescheid!</a>
+
+    <div class="strip strip-bottom"></div>
+  </div>
+
 </body>
 </html>
